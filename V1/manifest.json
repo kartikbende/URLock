@@ -3,7 +3,13 @@
    "description":"Real-time browser extension for detecting phishing websites and web-based security threats.",
    "version":"1.0",
    "manifest_version" : 3,
-   "action":{
-      "icon":""
+   "action": {
+   "default_popup": "popup/popup.html"
+},
+"content_scripts": [
+   {
+      "matches": ["<all_urls>"],
+      "js": ["content/content.js"]
    }
+]
 }
