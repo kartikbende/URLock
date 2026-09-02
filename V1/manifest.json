@@ -1,0 +1,9 @@
+{
+   "name":"URLock",
+   "description":"Real-time browser extension for detecting phishing websites and web-based security threats.",
+   "version":"1.0",
+   "manifest_version" : 3,
+   "action":{
+      "icon":""
+   }
+}
