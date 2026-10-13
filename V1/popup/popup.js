@@ -9,10 +9,15 @@ async function init() {
         const reply = await chrome.runtime.sendMessage({
             type: "URLOCK_GET_SNAPSHOT",
             tabId: tab.id,
+            tabUrl: tab.url,
         });
 
-        if (!reply || reply.snapshot === null) {
+        if (!reply || reply.status === "missing") {
             statusEl.textContent = "No data for this tab yet. Try reloading the page.";
+            return;
+        }
+        if (reply.status === "stale") {
+            statusEl.textContent = "This page just changed. Give it a moment and reopen the popup.";
             return;
         }
 

@@ -1,15 +1,10 @@
 {
    "manifest_version" : 3,
    "version":"0.1.0",
-   "permissions": ["storage"],
+   "permissions": ["storage", "activeTab"],
    "background":{"service_worker": "background/service-worker.js"},
    "name":"URLock",
    "description":"Real-time browser extension for detecting phishing websites and web-based security threats.",
    "action": {"default_popup": "popup/popup.html"},
-"content_scripts": [
-   {
-      "matches": ["<all_urls>"],
-      "js": ["content/content.js"]
-   }
-]
+   "content_scripts": [{"matches": ["<all_urls>"],"js": ["content/content.js"]}]
 }
